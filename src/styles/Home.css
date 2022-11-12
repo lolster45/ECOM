@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --main-bg-color: #1b4332;
+    --main-btn-color: #2d6a4f;
+}
+.body {
+    background-color: #f2fbe0;
+    width: 100vw;
+    height: auto;
+}
+.home-section-first {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    height: 600px;
+    background-image: url(../images/home-image-one.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.home-section-first > div {
+    text-align: center;
+    font-size: 1.6rem;
+    color: white;
+}
+.home-section-first > div > h1 {
+    font-size: 2.5rem;
+}
+.home-btn {
+    background-color: var(--main-bg-color);
+    color: #f2fbe0;
+    margin-top: 20px;
+    height: 40px;
+    width: 100px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.home-btn:hover {
+    background-color: #f2fbe0;
+    color: var(--main-bg-color);
+}
+.home-btn.electronics {
+    background-color: #2d2d34;
+}
+.home-btn.allProducts {
+    background-color: #2d6a4f;
+}
+.home-btn.womenBtn {
+    background-color: #f1e4e8;
+}
+.featured-products {
+    width: 100%;
+    height: fit-content;
+    margin-top: 30px;
+    text-align: center;
+    background: #fff;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(241, 228, 232, 1) 54%);
+}
+.featured-products > div {
+    display: grid;
+    justify-content: center;
+    grid-gap: 30px;
+    grid-template-columns: repeat(3, 350px);
+}
+.featured-products > h2 {
+    margin-bottom: 50px;
+    font-size: 20px;
+    font-weight: lighter;
+    letter-spacing: 8px;
+}
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 100%;
+    background-color: #2d2d34;
+    color: white;
+}
+@media only screen and (max-width: 700px) {
+    .featured-products > div {
+        height: 10px;
+   }
+}
+@media screen and (max-width: 1500px) {
+    .featured-products > div {
+        grid-template-columns: repeat(2, 350px);
+   }
+}
+@media screen and (max-width: 350px) {
+    .featured-products > div {
+        grid-template-columns: repeat(2, 350px);
+   }
+}
+@media screen and (max-width: 750px) {
+    .featured-products > div {
+        grid-template-columns: repeat(1, 280px);
+   }
+}

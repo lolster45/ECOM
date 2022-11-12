@@ -1,0 +1,91 @@
+:root {
+    --main-bg-color: #334139;
+    --main-btn-color: #2d6a4f;
+    --main-text-color: white;
+    --span-color: white;
+}
+.klobet {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 80px;
+    width: 100vw;
+    height: 93vh;
+    background-color: wte;
+    color: white;
+}
+.product-des-cont {
+    height: auto;
+    width: 340px;
+    margin-right: 80px;
+    background-color: white;
+    -webkit-box-shadow: -9px -7px 20px -2px rgba(207, 205, 207, 0.87);
+    -moz-box-shadow: -9px -7px 20px -2px rgba(207, 205, 207, 0.87);
+    box-shadow: -9px -7px 20px -2px rgba(207, 205, 207, 0.87);
+}
+.product-details {
+    position: relative;
+    height: 80px;
+    margin-bottom: 10px;
+}
+.product-details > h1 {
+    font-size: 1.5rem;
+}
+.product-column {
+    background-color: #334139;
+    height: 400px;
+    width: 650px;
+    border-radius: 10px;
+    padding: 30px;
+}
+.product-column > span {
+    font-size: 1.1rem;
+    color: var(--span-color);
+}
+.product-column > .description {
+    font-size: 13px;
+    line-height: 28px;
+    margin-bottom: 30px;
+}
+.product-column > .price-semantic {
+    font-size: 15px;
+}
+.product-column > .price-tag {
+    font-size: 20px;
+}
+.cart-btn {
+    position: relative;
+    right: 0px;
+    margin-top: 10px;
+    background-color: #f2fbe0;
+    color: var(--main-bg-color);
+    border: none;
+    height: 40px;
+    width: 100px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.cart-btn:hover {
+    background-color: #a4be79;
+    color: #f2fbe0;
+}
+@media screen and (max-width: 1120px) {
+    .klobet {
+        text-align: center;
+        flex-direction: column;
+        width: fit-content;
+        height: fit-content;
+        margin: 0 auto;
+   }
+    .klobet > img {
+        margin: 0 auto;
+        transform: translateY(-40px);
+   }
+    .product-column {
+        width: 100%;
+        height: fit-content;
+   }
+    .product-details {
+        margin-bottom: 40px;
+   }
+}
