@@ -1,7 +1,6 @@
 {
   "name": "e-site-shop",
   "version": "0.1.0",
-  "homepage": "http://lolster45.github.io/E-Commerse-final-",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
