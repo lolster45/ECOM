@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/ECOM/static/css/main.cb0956b6.css",
+    "main.js": "/ECOM/static/js/main.9772c3d2.js",
+    "static/media/home-image-one.jpg": "/ECOM/static/media/home-image-one.183b2f3b11be81925309.jpg",
+    "static/media/electronics.jpg": "/ECOM/static/media/electronics.8027e6e0d142f677dc20.jpg",
+    "static/media/womens.jpg": "/ECOM/static/media/womens.830f51acef1222f59548.jpg",
+    "index.html": "/ECOM/index.html",
+    "main.cb0956b6.css.map": "/ECOM/static/css/main.cb0956b6.css.map",
+    "main.9772c3d2.js.map": "/ECOM/static/js/main.9772c3d2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cb0956b6.css",
+    "static/js/main.9772c3d2.js"
+  ]
+}
