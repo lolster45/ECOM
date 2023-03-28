@@ -1,0 +1,77 @@
+@keyframes placeHolderShimmer{
+    0%{
+        background-position: -468px 0
+    }
+    100%{
+        background-position: 468px 0
+    }
+}
+.linear-background {
+    animation-duration: .4s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background: linear-gradient(to right, #cbc9c9 8%, #dddddd 18%, #cbc9c9 33%);
+    background-size: 1000px 104px;
+    height: 338px;
+    position: relative;
+    overflow: hidden;
+}
+
+.products-load-container {
+    height: 320px;
+    width: 240px;
+}
+
+.single-prod-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    //background-color: red;
+    .loading-image {
+        height: 80%;
+        width: 30%;
+        margin-right: 30px;
+        //background-color: orange;
+        //border: 1px solid black;
+    }
+    .loading-details {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        position: relative;
+        height: 80%;
+        width: 25%;
+        //background-color: orange;
+        .ld-title {
+            height: 30px;
+            width: 100%;
+            margin-bottom: 5px;
+            border-radius: 50px;
+            //background-color: purple;
+            &.second {
+                margin-bottom: 30px;
+                width: 70%;
+            }
+        }
+        .ld-para {
+            height: 20px;
+            width: 100%;
+            margin-bottom: 20px;
+            border-radius: 50px;
+            //background-color: brown;
+            &.second {
+                width: 80%;
+            }
+            &.third {
+                width: 60%;
+            }
+            &.fourth {
+                width: 4 0%;
+            }
+        }
+    }
+}

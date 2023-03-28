@@ -1,16 +1,15 @@
-import React from 'react'
+//React...
 import {Link} from "react-router-dom"
 
-export default function Card(props) {
+export default function Card({id, title, price, image, description}) {
   return (
-    <article className={"products-container"}>
-      <img src={props.image} height="160px" alt={props.title}/>
+    <Link to={`/displayInfo/${id}`} className="products-container">
+      <span className='product-price'>${price}</span>
+        {image && <img src={image} height="160px" alt={title}/>}
       <div> 
-        <h1>{props.title && props.title.substring(0, 20)}...</h1> 
-        <p>{props.description && props.description.substring(0, 34)}</p>
-        <Link className="card-btn" to={`/displayInfo/${props.id}`}>Check Out!</Link>
+        <h1>{title.substring(0, 20)}</h1> 
+        <p>{description}</p> 
       </div> 
-    </article>
+    </Link>
   )
 }
-//Added conditional rendering to not affect other uses of this comp

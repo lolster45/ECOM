@@ -1,0 +1,479 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-bg-color: #1b4332;
+  --main-btn-color: #2d6a4f;
+}
+
+.home-section-first {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: end;
+  height: 90vh;
+  padding-right: 130px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  background-color: #C4C4C4;
+  background-image: url("https://c1.wallpaperflare.com/preview/740/70/428/white-aesthetic-table-vase.jpg");
+  background-size: cover;
+  background-position-y: bottom;
+  div {
+    text-align: end;
+    font-size: 1.6rem;
+    color: black;
+
+    h1 {
+      font-size: 2.5rem;
+    }
+  }
+  .home-btn {
+    background-color: var(--main-bg-color);
+    color: #f2fbe0;
+    margin-top: 20px;
+    height: 40px;
+    width: 100px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &:hover {
+      background-color: #f2fbe0;
+      color: var(--main-bg-color);
+    }
+    &.electronics {
+      background-color: #2d2d34;
+    }
+    &.allProducts {
+      background-color: #2d6a4f;
+    }
+    &.womenBtn {
+      background-color: #f1e4e8;
+    }
+  }
+}
+
+.categories-homePage {
+  position: relative;
+  width: 100%;
+  padding-top: 80px;
+  h2 {
+    width: 82%;
+    margin: 0 auto;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 80px;
+  }
+  .interactive-categories {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    gap: 10px;
+    margin: 0 auto;
+    .categories-nav {
+      margin-top: 10px;
+      width: 240px;
+      margin-right: 5px;
+      .search-bar {
+        position: relative;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        height: 60px;
+        padding: 5px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        background-color: var(--light-grey);
+        input {
+          margin-left: 5px;
+          border: none;
+          outline: none;
+          padding-left: 5px;
+          height: 30px;
+          width: 100%;
+          &:focus::placeholder {
+            color: transparent;
+          }
+        }
+      }
+      nav {
+        position: relative;
+        width: 93%;
+        margin: 0 auto;
+        border-right: 1px solid var(--main-green-color);
+        a {
+          cursor: pointer;
+          display: block;
+          text-decoration: none;
+          margin-top: 10px;
+          height: 80px;
+          width: 90%;
+          padding-top: 10px;
+          padding-left: 10px;
+          transform: translate(10px);
+          color: black;
+          //background-color: red;
+        }
+      }
+    }
+    .categories-grid {
+      display: grid;
+      justify-content: end;
+      grid-template-columns: repeat(2, 350px);
+      padding: 5px;
+      row-gap: 25px;
+      column-gap: 25px;
+      div {
+        border-radius: 10px;
+      }
+      .center {
+        position: relative;
+        background-size: cover;
+        border-radius: 10px;
+        height: 200px;
+        img {
+          height: 100%;
+          width: 100%;
+          border-radius: 10px;
+        }
+      }
+      a {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        font-weight: bold;
+        text-decoration: none;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        border-radius: 10px;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.541);
+      }
+      .gridOne {
+        background-image: url("../images/vivo\(fold\).jpg");
+        background-size: cover;
+      }
+      .gridTwo {
+        background-image: url("../images/jewelry.jpg");
+        background-size: cover;
+      }
+      .gridThree {
+        background-image: url("../images/mens\ clothing.jpg");
+        background-size: cover;
+      }
+      .gridFour {
+        background-image: url("../images/womens.jpg");
+        background-size: cover;
+      }
+    }
+  }
+}
+
+.featured-products {
+  width: 100%;
+  height: fit-content;
+  margin-top: 30px;
+  margin-bottom: 60px;
+  display: flex;
+  justify-content: start;
+  
+  h2 {
+    text-align: center;
+  }
+  .bigBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    padding-right: 40px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-size: 2rem;
+    height: 400px;
+    width: 35%;
+    color: white;
+    background-color: #1b4332;
+    h2 {
+      text-align: end;
+      width: 90%;
+    }
+    p {
+      width: 90%;
+      text-align: end;
+    }
+  }
+  > div {
+    display: flex;
+    justify-content: center;
+    width: 65%;
+  }
+}
+
+.benefits-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  width: 100%;
+  margin-bottom: 60px;
+  background-color: #E0EFF6;
+  >h2 {
+    font-size: 2.5rem;
+    margin-bottom: 80px;
+    color: #07484A;
+    background-color: transparent;
+  }
+  .benefits-info {
+    display: flex;
+    justify-content: space-evenly;
+    width: 75%;
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      height: 240px;
+      text-align: center;
+      width: 25%;
+      img {
+        width: 80px;
+      }
+    }
+  }
+}
+
+.newsletter-join-section {
+  position: relative;
+  display: flex;
+  height: 400px;
+  width: 100%;
+  margin-top: 60px;
+  margin-bottom: 50px;
+  .img {
+    height: auto;
+    width: 50%;
+    background-image: url("https://thumbs.dreamstime.com/b/happy-person-shopping-bags-phone-studio-161302509.jpg");
+    background-size: cover;
+    background-position-x: center;
+  }
+  .newsletter-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    background-color: #E0F6F1;
+    .sign-up-box {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      height: 70%;
+      width: 70%;
+      h2 {
+        font-size: 30px;
+        font-weight: 100;
+        color: #07484A;
+        &:last-of-type {
+          font-weight: bold;
+          margin-bottom: 15px;
+        }
+      }
+      p {
+        font-size: 15px;
+        color: #07484A;
+        margin-bottom: 15px;
+      }
+      input {
+        height: 40px;
+        width: 55%;
+        outline: none;
+        border: none;
+        padding-left: 5px;
+        margin-bottom: 15px;
+        color: black;
+        background-color: #E0F6F1;
+        &:focus::placeholder {
+          color: transparent;
+        }
+      }
+      button {
+        cursor: pointer;
+        height: 40px;
+        width: 100px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        color: white;
+        background-color: #70908B;
+      }
+    }
+  }
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 100%;
+  color: black;
+  background-color: #EAEAEA;
+}
+
+@media only screen and (max-width: 1000px) {
+  .home-section-first {
+    align-items: center;
+    padding: 0;
+    div {
+      color: black;
+      text-align: center;
+    }
+  }
+  .categories-homePage {
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+    .interactive-categories {
+      justify-content: center;
+      height: fit-content;
+      width: 100%;
+      .categories-nav {
+        width: 50%;
+      }
+      .categories-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        .center {
+          height: 150px;
+        }
+        .gridOne {
+          max-height: 160px;
+        }
+        .gridTwo {
+          max-height: 160px;
+        }
+        .gridThree {
+          max-height: 160px;
+        }
+        .gridFour {
+          max-height: 160px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .featured-products {
+    flex-direction: column;
+    .bigBlock {
+      width: 100%;
+      h2, p{
+        text-align: center;
+      }
+    }
+    div {
+      width: 100%;
+      @media (max-width: 575px) {
+        padding-top: 20px;
+        flex-direction: column;
+        align-items: center;
+        & > * {
+          margin-right: 0;
+          margin-bottom: 30px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 615px) {
+  .categories-homePage {
+    height: auto;
+    .interactive-categories {
+      flex-direction: column;
+      .categories-nav {
+        width: 100%;
+        .search-bar {
+          width: 90%;
+          margin: 0 auto;
+        }
+        nav {
+          display: flex;
+          justify-content: center;
+          width: 80%;
+          padding: 0;
+          border-right: none;
+          transform: translate(-10px);
+          @media(max-width: 400px) {
+            flex-wrap: wrap;
+          }
+          a {
+            text-align: center;
+            padding: 0;
+            height: fit-content;
+            width: 80%;
+          }
+        }
+      }
+      .categories-grid .center {
+        height: 180px;
+      }
+    }
+  }
+  .benefits-section {
+    height: auto;
+    margin-top: 30px;
+    h2 {
+      margin: 0;
+      padding: 5px;
+      margin-bottom: 10px;
+      width: 100%;
+      text-align: center;
+    }
+    .benefits-info {
+      flex-direction: column;
+      div {
+        width: 100%;
+      }
+    }
+  }
+  .newsletter-join-section {
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+    .img {
+      height: 180px;
+      width: 100%;
+    }
+    .newsletter-info {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      width: 100%;
+      .sign-up-box {
+        h2,
+        p {
+          width: 100%;
+          text-align: center;
+        }
+        input {
+          margin: 0 auto;
+          margin-bottom: 10px;
+          &::placeholder {
+            text-align: center;
+          }
+        }
+        button {
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}

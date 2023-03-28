@@ -1,25 +1,45 @@
-import React from "react"
-import "../styles/product-page.css"
+//React...
+import React, {useState, useEffect}from "react"
+
+//Components...
 import Card from "../components/Card"
+import FbShean from "../components/Loading/FbShean"
 
+//Styles...
+import "../styles/product-page.scss"
 const Products = () => {
-  const [arrayOfProd, setArrayOfProduct] = React.useState([])
-  const [category, setCategory] = React.useState("electronics")
+  const [arrayOfProd, setArrayOfProduct] = useState([])
+  const [category, setCategory] = useState("electronics")
+  const [pageNumber, setPageNumber] = useState(0)
 
-  React.useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/category/${category}?limit=20`) 
-      .then(res=>res.json())
-      .then(json=> setArrayOfProduct(json)) 
-  }, [category])  
+  //Loading status...
+  const [loading, setLoading] = useState(true)
 
-  React.useEffect(() => {
-    fetch(`https://fakestoreapi.com/${category}/?limit=20`) 
-      .then(res=>res.json())
-      .then(json=> setArrayOfProduct(json)) 
-  }, [category]) 
+  const getCategoryProducts = async () => {
+    const res = await fetch(`https://fakestoreapi.com/products/category/${category}`)
+    const data = await res.json()
+    setArrayOfProduct(data)
+    setLoading(false)
+  }
 
-  function handleChange(event) {
+  useEffect(() => {
+    try {
+      setLoading(true)
+      getCategoryProducts()
+    } catch (error) {
+      console.log(error) //we should make them navigate to 404 page if error...
+    }
+  }, [category, pageNumber]) 
+
+  const handleChange = (event) => {
+    setPageNumber(0)
     setCategory(event.target.value)
+  }
+  const changePageNumber = () => {
+    setPageNumber(prev => prev + 20)
+  }
+  const changePageNumberBack = () => {
+    setPageNumber(prev => prev - 20)
   }
 
   return (
@@ -28,28 +48,47 @@ const Products = () => {
         <label>Category: 
           <select onChange={handleChange}>
             <option value="electronics">Electronics</option>
-            <option value="products">All Products</option>
             <option value="jewelery">Jewelery</option>
-            <option value="men's clothing">Men's clothing</option>
-            <option value="women's clothing">women's clothing</option>
+            <option value="men's clothing">Men's fashion</option>
+            <option value="women's clothing">Women's fashion</option>
           </select>
         </label>
-      </nav>
+      </nav> 
       <div className="products-page">
-        {arrayOfProd.map((item, index) => {
+        {loading &&
+          <>
+            <FbShean/>
+            <FbShean/>
+            <FbShean/>
+            <FbShean/>
+            <FbShean/>
+            <FbShean/>
+            <FbShean/>
+            <FbShean/>
+            <FbShean/>
+            <FbShean/>
+          </>
+        }
+        {!loading && 
+          arrayOfProd.map((item, index) => {
             return (
               <Card 
                 key={index}
                 id={item.id}
+                price={item.price}
                 title = {item.title}
                 image = {item.image}
-                price = {item.price}
               />
             )
           })
-        }
+        } 
+      </div>
+      <div className="page-number-nav">
+        {pageNumber > 1 && <button onClick={changePageNumberBack}>Go Back</button>}
+        {arrayOfProd.length === 20 && <button onClick={changePageNumber}>Next Page</button>}
       </div>
     </section>
   )
 }
+
 export default Products

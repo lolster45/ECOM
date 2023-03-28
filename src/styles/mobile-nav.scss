@@ -1,0 +1,26 @@
+.nav-mobile {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	padding: 10px;
+	z-index: 1;
+	height: fit-content;
+	width: 100vw;
+	top: 50px;
+	left: -2000px;
+	background-color: #1b4332;
+	transition: all 0.4s ease-in-out;
+	a {
+		margin-top: 30px;
+		text-decoration: none;
+		font-size: 30px;
+		margin-bottom: 10px;
+		color: white;
+	}
+}
+
+.nav-mobile.active {
+	top: 50px;
+	left: 0px;
+}

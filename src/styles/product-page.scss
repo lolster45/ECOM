@@ -1,0 +1,142 @@
+section {
+	position: relative;
+	background-color: white;
+	height: 1000px;
+}
+
+:root {
+	--main-bg-color: #1b4332;
+	--main-btn-color: #2d6a4f;
+	--main-text-color: white;
+}
+
+.products-page {
+	display: grid;
+	justify-content: center;
+	justify-items: center;
+	grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+	align-items: start;
+	justify-items: center;
+	padding: 40px;
+	grid-gap: 20px;
+	min-height: 93vh;
+	padding-top: 50px;
+	height: auto;
+	width: 100%;
+	margin: 0 auto;
+	background-color: #EAEAEA;
+}
+
+.products-container {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	min-height: 300px;
+	width: 240px;
+	margin-bottom: 30px;
+	text-decoration: none;
+	color: black;
+	background-color: white;
+	box-shadow: 0px 0px 48px -16px rgba(0, 0, 0, 0.146);
+	-webkit-box-shadow: 0px 0px 48px -16px rgba(0, 0, 0, 0.146);
+	-moz-box-shadow: 0px 0px 48px -16px rgba(0, 0, 0, 0.146);
+	transition: all 0.2s ease;
+	&:hover {
+		transform: scale(1.04);
+	}
+	.product-price {
+		position: absolute;
+		top: 5px;
+		left: 5px;
+		padding: 3px;
+		border-radius: 5px;
+		color: black;
+		background-color: white;
+	}
+	>img {
+		align-self: center;
+		min-height: 200px;
+		max-width: 170px;
+	}
+	>div {
+		text-align: center;
+		margin: 0 auto;
+		margin-top: 2px;
+		height: auto;
+		width: 210px;
+		padding: 5px;
+		>h1 {
+			text-align: center;
+			font-size: 16px;
+			letter-spacing: 3px;
+			font-weight: lighter;
+		}
+		>p {
+			text-align: center;
+			margin-top: 3px;
+			font-size: 13px;
+			line-height: 20px;
+			word-break: normal;
+			margin-bottom: 20px;
+		}
+		.card-btn {
+			cursor: pointer;
+			font-size: 0.7rem;
+			text-align: center;
+			text-decoration: none;
+			padding: 10px;
+			width: 100px;
+			height: 40px;
+			border: none;
+			text-decoration: none;
+			color: black;
+			background-color: #EAEAEA;
+			&.colorOne {
+				background-color: #CAF3E5;
+			}
+			&.colorTwo {
+				background-color: #EEEBFF;
+			}
+			&.colorThree {
+				background-color: #FFF4E7;
+			}
+		}
+	}
+}
+
+.nav-filter {
+	padding: 10px;
+	text-align: center;
+	background-color: #EAEAEA;
+	>label {
+		color: #1b4332;
+		font-size: 25px;
+		font-weight: bolder;
+		>select {
+			cursor: pointer;
+			margin-left: 10px;
+			padding: 10px;
+			border: none;
+			color: black;
+			option {
+				height: 20px;
+			}
+		}
+	}
+}
+
+.page-number-nav {
+	display: flex;
+	justify-content: center;
+	padding-top: 40px;
+	padding-bottom: 60px;
+	background-color: #EAEAEA;
+	button {
+		cursor: pointer;
+		outline: none;
+		border: none;
+		padding: 10px;
+		background-color: white;
+	}
+}

@@ -1,18 +1,33 @@
+//React...
 import React from "react"
 import {Link} from "react-router-dom"
-import "../styles/cart.css"
 
-export default function Cart(props) {
+//Styles...
+import "../styles/cart.scss"
+
+export default function Cart({id, title, price, image, description, deleteCartItem, quantity}) {
   return (
-    <li className="cart-list" data-price={props.price} data-title={props.title}>
-      <Link className="image-holder" to={`/displayInfo/${props.id}`}>
-        <img src={props.image} />
+    <li className="cart-list" data-price={price} data-title={title}>
+      <Link className="image-holder" to={`/displayInfo/${id}`}>
+        <img src={image} />
       </Link>
-      <aside>
-        <h2>{props.title}</h2>
-        <p>{props.description.substring(0, 204)}...</p>
-      </aside>
-      <button onClick={props.handleDelete} className="dlt-btn">X</button>
+      <div className="cart-product-details">
+        <h2>{title}</h2>
+        <p>{description.substring(0, 204)}...</p>
+        <span className="qnty-cart">
+          Qty: {quantity}
+          <button 
+            onClick={deleteCartItem}
+            data-id={id}
+            data-price={price}
+            data-title={title}
+            data-qty={quantity}
+          >
+              Delete
+          </button>
+        </span>
+      </div>
+      <div className="single-price-cart">${price}</div>
     </li>
   )
 }

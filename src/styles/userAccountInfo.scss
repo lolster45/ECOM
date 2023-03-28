@@ -1,0 +1,134 @@
+.SL-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 91.2vh;
+    width: 100%;
+    background-color: #EAEAEA;
+    .SL-image-wrap {
+        height: 540px;
+        width: 30%;
+        border-radius: 10px;
+        background-image: url("../images/shoes\(main\).jpg");
+        background-size: cover;
+        background-position-x: center;
+    }
+    .SL-form {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        height: 420px;
+        width: 500px;
+        background-color: rgb(45, 43, 43);
+        //Login form styles...
+        &.login {
+            border-radius: 10px;
+        }
+        //--------------------
+        h2 {
+            width: 90%;
+            margin-bottom: 25px;
+            font-size: 2rem;
+            color: white;
+        }
+        .google-icon {
+            cursor: pointer;
+            position: absolute;
+            font-size: 2rem;
+            border-radius: 50%;
+            top: 45px;
+            right: 30px;
+            background-color: white;
+        }
+
+        input {
+            height: 40px;
+            width: 90%;
+            font-size: 1.1rem;
+            padding-left: 15px;
+            border: none;
+            border-radius: 50px;
+            outline: none;
+            margin-top: 20px;
+            &:focus {
+                border-bottom: 1px solid #07484A;
+                &::placeholder {
+                    color: transparent;
+                }
+            }
+            &:last-of-type {
+                margin-top: 30px;
+                margin-bottom: 50px;
+            }
+        }
+        button {
+            cursor: pointer;
+            height: 40px;
+            width: 90%;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 50px;
+            outline: none;
+            font-size: 1rem;
+            font-weight: bold;
+            color: white;
+            background-image: linear-gradient(to right, hsla(220, 99%, 72%, 1) , hsla(308, 76%, 71%, 1));
+        }
+
+        .login-user-link {
+            color: white;
+        }
+        .sign-up-error {
+            position: absolute;
+            top: 95px;
+            right: 50px;
+            margin-top: 2px;
+            padding-left: 15px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: red;
+        }
+        .error-msg {
+            margin-top: 5px;
+            font-size: 0.9rem;
+            color: red;
+        }
+    }
+}
+
+
+@media screen and (max-width: 750px) {
+
+    .SL-page {
+        flex-direction: column;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        .SL-image-wrap {
+            width: 550px;
+            background-position-y: center;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+            @media (max-width: 550px) {
+                width: 98%;
+            }
+        }
+        .SL-form {
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+            border-bottom-left-radius: 10px;
+            width: 550px;
+            @media (max-width: 550px) {
+                width: 98%;
+            }
+            .google-icon {
+                top: 15px;
+            }
+        }
+    }
+}

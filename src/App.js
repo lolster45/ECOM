@@ -1,59 +1,130 @@
-import React, {useEffect, useState} from 'react';
+//React...
+import React, {useState} from 'react';
+import {Routes, Route, Link} from "react-router-dom"
+
+//Components...
+import CatGrids from './components/Home-Grid/cat-grids';
 import Nav from "./components/Nav"
-import MobileNav from "./components/mobile-nav"
+import MobileNav from './components/Mobile-nav';
+import DisplayInfo from "./components/displayInfo"
+
+//Firebase...
+import {auth} from "./firebase"
+import { useAuthState } from 'react-firebase-hooks/auth';
+
+//Pages...
 import Home from "./pages/Home"
 import Products from "./pages/Products"
 import CartPage from "./pages/CartPage"
-import DisplayInfo from "./components/displayInfo"
-import {Routes, Route} from "react-router-dom"
-import "../src/style.css"
+import AboutPage from './pages/About';
+import Login from './pages/Login';
+import SignUp from './pages/SignUp';
+import UserDashBoard from './pages/UserDashBoard';
 
+//React icons...
+import {GiHamburgerMenu} from "react-icons/gi"
+import {CgProfile} from "react-icons/cg"
+
+//Styles...
+import "../src/style.scss"
 
 export function App() {
-  const [cart, setCart] = useState([])     
+  const [user] = useAuthState(auth)
+  //CartItems state...
+  const [cartItems, setCartItems] = useState([])
+  //CartItem details state...
   const [price, setPrice] = useState(0)
-  const [realCart, setRealCart] = useState([])
+  const [quantity, setQuantity] = useState(1);
 
-  useEffect(() => { 
-    fetch('https://fakestoreapi.com/products?limit=20')
-          .then(res=>res.json())
-          .then(data=> setCart(data))
-    }, []) 
   
-  function handleClick(event) {
-    const id = event.target.getAttribute("data-id")
-    const result = cart.filter(x => x.id === Number(id))
-    setPrice(prevPrice => prevPrice + result[0].price)
-    setRealCart(prevCart => [...prevCart, result[0]]) 
+  const addCartItem = async (event) => {
+    const id = event.target.getAttribute("data-id");
+    const res = await fetch(`https://fakestoreapi.com/products/${id}`);
+    const data = await res.json();
+
+    setPrice(prevPrice => prevPrice + (data.price * quantity))
+    setCartItems(prevCart => [{
+      ...data,
+      quantity: quantity
+    },...prevCart]) 
+    setQuantity(1)
   }
-  function handleDelete(event) {
-    let dltPrice = event.target.parentElement.getAttribute("data-price");
-    let dltTitle = event.target.parentElement.getAttribute("data-title");
-    setPrice(prevPrice => prevPrice - dltPrice )
-    setRealCart(prevCart => prevCart.filter(x => x.title !== dltTitle))
+
+  const deleteCartItem = (event) => {
+    let productID = event.target.getAttribute("data-id");
+    let itemPrice = event.target.getAttribute("data-price");
+    let qty = event.target.getAttribute("data-qty");
+
+    setCartItems(prevCart => prevCart.filter(x => x.id !== +productID))
+    setPrice(prevPrice => prevPrice - (itemPrice * qty ))
   }
 
   const [hamMenu, setHamMenu] = useState(false)
 
-  function handleClickMobile () {
+  const handleClickMobile = () => {
     setHamMenu(!hamMenu)
   }
   
   return (
       <div className='App'>
-        <div></div>
-        <Nav className={"nav-container"} cartSize={realCart.length}/>
-        <span className={"mobile-menu"} onClick={handleClickMobile}></span>
+        <Nav className={"nav-container"} cartSize={cartItems.length}/>
+        <span className={"mobile-menu"} >
+          <Link to={user ? "/Dashboard" : "/signUp" }>
+            {!user && <CgProfile/>}
+            {user && user?.photoURL &&
+              <img src={user.photoURL} alt="user profile picture"/> 
+            }
+            {user && !user?.photoURL &&
+              <img src={new URL("https://images.nightcafe.studio//assets/profile.png?tr=w-1600,c-at_max")} alt="anonymous profile picture"/>
+            }
+          </Link>
+          <GiHamburgerMenu onClick={handleClickMobile}/>
+        </span>
         <MobileNav 
           className={hamMenu ? "nav-mobile active": "nav-mobile"}
           remove={handleClickMobile}
         />
         <section className="content-section">
           <Routes>
-            <Route path="/" element={<Home />}></Route>
+            <Route path="/" element={<Home />}>
+              <Route path='Electronics' element={
+                <CatGrids gridImg="gridOne"/>
+              }/>
+              <Route path='jewelery' element={
+                <CatGrids gridImg="gridTwo"/>
+              }/>
+              <Route path="men's" element={
+                <CatGrids gridImg="gridThree"/>
+              }/>
+              <Route path="women's" element={
+                <CatGrids gridImg="gridFour"/>
+              }/>
+            </Route>
+            <Route path="/AboutUs" element={<AboutPage />}></Route>
             <Route path="/Products" element={<Products />}></Route>
-            <Route path="/CartPage" element={<CartPage data={realCart} price={price} handleDelete={handleDelete}/>}></Route>
-            <Route path={`/displayInfo/:id`} element={<DisplayInfo onClick={handleClick} />}></Route>
+            <Route path="/SignUp" element={<SignUp/>}/>
+            <Route path="/Login" element={<Login/>}/>
+            <Route path="/Dashboard" element={<UserDashBoard data={cartItems} />}></Route>
+            <Route 
+              path="/CartPage" 
+              element={
+                <CartPage 
+                  data={cartItems}
+                  price={price} 
+                  deleteCartItem={deleteCartItem}
+                />
+              }>
+            </Route>
+            <Route 
+              path={`/displayInfo/:id`} 
+              element={
+                <DisplayInfo 
+                  cartItems={cartItems}
+                  addCartItem={addCartItem} 
+                  setQuantity={setQuantity}
+                />
+              }>
+            </Route>
           </Routes> 
         </section> 
       </div>
