@@ -9,19 +9,23 @@
   position: relative;
   height: 91.2vh;
   width: 100%;
+
+
+
   .single-wrap {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
     .product-image {
-      height: 70%;
-      width: 30%;
+      height: 50%;
+      width: 25%;
       margin-right: 80px;
+      transform: translateY(-50px);
     }
     .product-column {
       height: 80%;
-      width: 50%;
+      width: 30%;
       border-radius: 10px;
       color: black;
       .product-title {
@@ -68,6 +72,10 @@
       }
       .cart-btn {
         position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
         right: 0px;
         margin-top: 10px;
         background-color: #f2fbe0;
@@ -77,6 +85,10 @@
         width: 100px;
         cursor: pointer;
         transition: all 0.3s ease;
+
+        svg {
+          font-size: 1.2rem;
+        }
         
         &:hover {
           background-color: #a4be79;
