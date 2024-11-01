@@ -1,16 +1,26 @@
+
+//React...
 import React from "react"
 import {Link} from "react-router-dom"
+import { useContext } from "react"
+import { MyContext } from "../App"
 
+//Styles...
 import "../styles/home-cards.scss"
 
 export default function HomeCards({id, title, image}) {
+
+  const {handleTransition} = useContext(MyContext)
+
+
+
   return (
-    <Link to={`/displayInfo/${id}`}  className="home-card">
+    <Link onClick={handleTransition} to={`/displayInfo/${id}`}  className="home-card">
       <img src={image} alt={`${title} image`}/>
-      <h2>{title}</h2>
-      <Link to="/Products">
+      <div className="card-bottom">
+        <h2>{title}</h2>
         <button>SHOP</button>
-      </Link>
+      </div>
     </Link >
   )
 }

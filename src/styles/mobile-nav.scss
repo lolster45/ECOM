@@ -1,26 +1,106 @@
-.nav-mobile {
-	position: absolute;
-	display: flex;
-	flex-direction: column;
-	text-align: center;
-	padding: 10px;
-	z-index: 1;
-	height: fit-content;
-	width: 100vw;
-	top: 50px;
-	left: -2000px;
-	background-color: #1b4332;
-	transition: all 0.4s ease-in-out;
-	a {
-		margin-top: 30px;
-		text-decoration: none;
-		font-size: 30px;
-		margin-bottom: 10px;
-		color: white;
+.nav-mobile-overlay {
+	position: fixed;
+	top: 0px;
+	z-index: -1;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.571);
+
+	
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s ease, visibility 0.3s ease;
+
+	ul {
+		position: absolute;
+		left: -200px;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		padding-left: 100px;
+		padding-top: 70px;
+		height: 100%;
+		width: 60%;
+		background-color: #F6D8C6;
+
+
+		opacity: 0;
+		visibility: hidden;
+		transition: left 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+
+	
+
+		a {
+			cursor: pointer;
+			margin-top: 30px;
+			text-decoration: none;
+			font-size: 30px;
+			margin-bottom: 10px;
+			color: black;
+		}
+
+		
+	}
+
+	&.active {
+		z-index: 20;
+		opacity: 1;
+		visibility: visible;
+
+		ul {
+			left: 0px;
+			opacity: 1;
+			visibility: visible;
+			transform: translateX(0px);
+		}
+	}
+
+}
+
+@media only screen and (max-width: 680px) {
+
+	.nav-mobile-overlay {
+
+		ul {
+			padding-left: 80px;
+		}
 	}
 }
 
-.nav-mobile.active {
-	top: 50px;
-	left: 0px;
+
+@media only screen and (max-width: 620px) {
+	.nav-mobile-overlay {
+		ul {
+			a {
+				font-size: 1.6rem;
+			}
+		}
+	}
 }
+
+
+@media only screen and (max-width: 530px) {
+	.nav-mobile-overlay {
+		ul {
+			padding-left: 60px;
+			a {
+				font-size: 1.6rem;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 430px) {
+	.nav-mobile-overlay {
+		ul {
+			width: 70%;
+			padding-left: 50px;
+			a {
+				font-size: 1.4rem;
+			}
+		}
+	}
+}
+
+
+

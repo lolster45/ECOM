@@ -8,6 +8,8 @@ import Rating from "react-rating"
 
 //React icons...
 import {FaStar, FaRegStar} from "react-icons/fa"
+import { IoMdCheckmark } from "react-icons/io";
+
 
 //Styles...
 import "../styles/Card.scss"
@@ -55,6 +57,8 @@ const InfoCard = ({setQuantity, addCartItem, cartItems}) => {
         </div>
       </section>
       }
+
+
       {!loading &&
       <div className="single-wrap">
         <img 
@@ -94,6 +98,7 @@ const InfoCard = ({setQuantity, addCartItem, cartItems}) => {
             <button  
               className="cart-btn"
             >
+                <IoMdCheckmark/>
                 Added
             </button>
             :
